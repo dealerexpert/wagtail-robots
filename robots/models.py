@@ -2,7 +2,6 @@ import django
 
 from django.db import models
 from django.utils.text import get_text_list
-from django.utils.translation import ugettext_lazy as _
 
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalKey
@@ -19,8 +18,10 @@ else:
 
 if django.VERSION >= (3, 0):
     from six import u
+    from django.utils.translation import gettext_lazy as _
 else:
     from django.utils.six import u
+    from django.utils.translation import ugettext_lazy as _
 
 
 class BaseUrl(models.Model):
